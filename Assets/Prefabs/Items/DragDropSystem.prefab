@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentItemToDrag: {fileID: 0}
-  dragHeight: 1
+  dragHeight: -0.5
+  spawnPointForItems: {x: 0, y: 0, z: 0}
