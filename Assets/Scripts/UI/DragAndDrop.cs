@@ -15,10 +15,13 @@ public sealed class DragAndDrop : MonoBehaviour
     [Header("Events")]
     
     [SerializeField] private UnityEvent onSpawnItem = new UnityEvent();
+    [SerializeField] private UnityEvent onStopDragging = new UnityEvent();
 
     private void Update()
     {
         SelectNewItemToDrag();
+        
+        if(Input.GetMouseButtonUp(1)) onStopDragging?.Invoke();
         
         if (!Input.GetMouseButton(1)) return;
         

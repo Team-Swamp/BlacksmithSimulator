@@ -49,3 +49,6 @@ MonoBehaviour:
   onSpawnItem:
     m_PersistentCalls:
       m_Calls: []
+  onStopDragging:
+    m_PersistentCalls:
+      m_Calls: []
