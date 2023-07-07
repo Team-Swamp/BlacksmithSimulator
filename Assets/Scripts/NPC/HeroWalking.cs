@@ -1,10 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class HeroWalking : MonoBehaviour
+public sealed class HeroWalking : MonoBehaviour
 {
     private enum HeroState
     {
@@ -13,39 +11,38 @@ public class HeroWalking : MonoBehaviour
         Standing,
         WalkingBack
     }
+    private HeroState _currentHeroState;
 
-    [SerializeField] private Transform startingPos;
-    [SerializeField] private Transform standInFrontBlacksmithPos;
+    [Header("Settings")]
     [SerializeField] private float walkSpeed;
     [SerializeField] private float positionMargin = 0.1f;
+    
+    public Transform StartingPos { private get; set; }
+    public Transform StandInFrontBlacksmithPos { private get; set; }
 
-    private HeroState _currentState;
-    [SerializeField] private bool _isActive;
+    private bool _isActive;
 
+    [Header("Events")]
     [SerializeField] private UnityEvent onStandingInFrontBlackSmith = new UnityEvent();
     [SerializeField] private UnityEvent onWalkingBack = new UnityEvent();
 
-    private void Awake()
-    {
-        transform.position = startingPos.position;
-    }
-
     private void Update()
     {
-        switch (_currentState)
+        switch (_currentHeroState)
         {
             case HeroState.Spawned:
-                if (_isActive) _currentState = HeroState.WalkToBlackSmith;
+                if (_isActive) _currentHeroState = HeroState.WalkToBlackSmith;
                 break;
             case HeroState.WalkToBlackSmith:
-                WalkToTarget(standInFrontBlacksmithPos.position);
+                WalkToTarget(StandInFrontBlacksmithPos.position);
                 break;
             case HeroState.Standing:
                 onStandingInFrontBlackSmith?.Invoke();
                 break;
             case HeroState.WalkingBack:
                 onWalkingBack?.Invoke();
-                WalkToTarget(startingPos.position);
+                FindObjectOfType<HeroWalkCyle>().StartWalkingNewHero();
+                WalkToTarget(StartingPos.position);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -57,10 +54,11 @@ public class HeroWalking : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPos, walkSpeed * Time.deltaTime);
         if (!(Vector3.Distance(transform.position, targetPos) <= positionMargin)) return;
         
-        switch (_currentState)
+        switch (_currentHeroState)
         {
             case HeroState.WalkToBlackSmith:
-                _currentState = HeroState.Standing;
+                _currentHeroState = HeroState.Standing;
+                FindObjectOfType<HeroWalkCyle>().SpawnNewHero();
                 break;
             case HeroState.WalkingBack:
                 Destroy(gameObject);
@@ -75,6 +73,6 @@ public class HeroWalking : MonoBehaviour
     
     public void SetToWalkingBackState()
     {
-        _currentState = HeroState.WalkingBack;
+        _currentHeroState = HeroState.WalkingBack;
     }
 }
