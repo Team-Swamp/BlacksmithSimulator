@@ -20,7 +20,7 @@ public sealed class DragAndDrop : MonoBehaviour
         }
             
         if (!currentItemToDrag) return;
-        var itemPos = new Vector3(_mousePos.x, dragHeight, _mousePos.z);
+        var itemPos = new Vector3(_mousePos.x, _mousePos.y, dragHeight);
         currentItemToDrag.transform.position = itemPos;
     }
 
