@@ -9,10 +9,7 @@ public class GivingWeoponParts : MonoBehaviour
 
     private Inventory _inventory;
 
-    private void Start()
-    {
-        _inventory = FindObjectOfType<Inventory>();
-    }
+    private void Start() => _inventory = FindObjectOfType<Inventory>();
 
     public void SelectItems()
     {
@@ -22,7 +19,7 @@ public class GivingWeoponParts : MonoBehaviour
             case WeaponScore.Common:
                 //todo: Negative dialog
                 StartWalking();
-                break;// Gives nothing
+                break;
             case WeaponScore.Uncommon:
             case WeaponScore.Rare:
             case WeaponScore.Epic:
@@ -30,14 +27,13 @@ public class GivingWeoponParts : MonoBehaviour
                 //todo: Positive dialog
                 _inventory.ActivatePart(weaponPartToGive);
                 StartWalking();
-                break;// Gives something
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
 
-    private void StartWalking()
-    {
-        GetComponent<HeroWalking>().SetToWalkingBackState();
-    }
+    public void SetScore(int targetScore) => score = (WeaponScore)targetScore;
+    
+    private void StartWalking() => GetComponent<HeroWalking>().SetToWalkingBackState();
 }

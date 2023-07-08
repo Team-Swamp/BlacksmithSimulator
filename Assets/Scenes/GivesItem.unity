@@ -4591,6 +4591,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9148274923124952886, guid: 3b0b25839b8c92f44bad5fa82031e135, type: 3}
+      propertyPath: heros.Array.data[1]
+      value: 
+      objectReference: {fileID: 6747761090199465719, guid: e50edb751faeb4f4a835d9381bd33493, type: 3}
     - target: {fileID: 9148274923124952887, guid: 3b0b25839b8c92f44bad5fa82031e135, type: 3}
       propertyPath: m_Name
       value: HeroWalkingSystem
