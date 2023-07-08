@@ -475,6 +475,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1490612095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490612097}
+  - component: {fileID: 1490612096}
+  m_Layer: 0
+  m_Name: ItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1490612096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490612095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d2b5dc08785474eb15bf4d980bfb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemList: []
+--- !u!4 &1490612097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490612095}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.063373566, y: 1.2804294, z: 14.95199}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1735279958 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 115552305456560321, guid: eab0e3c478c519547890357f61c39709, type: 3}
@@ -550,6 +594,18 @@ PrefabInstance:
       propertyPath: spawnPointForItems
       value: 
       objectReference: {fileID: 626254296}
+    - target: {fileID: 115552305456560321, guid: eab0e3c478c519547890357f61c39709, type: 3}
+      propertyPath: onDragging.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 115552305456560321, guid: eab0e3c478c519547890357f61c39709, type: 3}
+      propertyPath: onDragging.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 115552305456560321, guid: eab0e3c478c519547890357f61c39709, type: 3}
+      propertyPath: onDragging.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 115552305456560322, guid: eab0e3c478c519547890357f61c39709, type: 3}
       propertyPath: m_Name
       value: DragDropSystem
