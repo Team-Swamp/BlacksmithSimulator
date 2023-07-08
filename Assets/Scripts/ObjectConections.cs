@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class ObjectConections : MonoBehaviour
 {
     private ItemManager _itemManager;
 
-    [SerializeField] private Vector3 size;
+    private Vector3 size;
     private MeshRenderer renderer;
 
     [SerializeField] private List<GameObject> connectionPoints;
-    [SerializeField] private GameObject AtachmentPoint;
+
+    [SerializeField] private UnityEvent onConnect;
+    [SerializeField] private UnityEvent onDetach;
 
     private bool _canConnect = true;
 
@@ -18,8 +21,8 @@ public class ObjectConections : MonoBehaviour
     {
         _itemManager = FindObjectOfType<ItemManager>();
 
-        var test = gameObject.GetComponentsInChildren<ConnectionPoint>();
-        foreach (ConnectionPoint a in test)
+        var _points = gameObject.GetComponentsInChildren<ConnectionPoint>();
+        foreach (ConnectionPoint a in _points)
         {
             connectionPoints.Add(a.gameObject);
         }
@@ -48,15 +51,15 @@ public class ObjectConections : MonoBehaviour
         float _closestDistance = 99;
         GameObject _closestObject = null;
 
-        foreach (GameObject a in _items)
+        foreach (GameObject obj in _items)
         {
-            if (a.gameObject != this.gameObject)
+            if (obj.gameObject != this.gameObject)
             {
-                var _currentDistance = Vector3.Distance(gameObject.transform.position, a.transform.position);
+                var _currentDistance = Vector3.Distance(gameObject.transform.position, obj.transform.position);
                 if (_currentDistance < _closestDistance)
                 {
                     _closestDistance = _currentDistance;
-                    _closestObject = a;
+                    _closestObject = obj;
                 }
             }
         }
@@ -72,18 +75,18 @@ public class ObjectConections : MonoBehaviour
         GameObject _closestConnection = null;
         GameObject _closestConnectionSelf = null;
 
-        var test = Item.GetComponentsInChildren<ConnectionPoint>();
-        foreach (ConnectionPoint a in test)
+        var _points = Item.GetComponentsInChildren<ConnectionPoint>();
+        foreach (ConnectionPoint point in _points)
         {
             for (int i = 0; i < connectionPoints.Count; i++)
             {
-                var _distanceJoints = Vector3.Distance(connectionPoints[i].gameObject.transform.position, a.transform.position);
+                var _distanceJoints = Vector3.Distance(connectionPoints[i].gameObject.transform.position, point.transform.position);
 
-                if(_distanceJoints < _closestDistance && connectionPoints[i].gameObject.transform.localPosition.y - a.transform.localPosition.y != 0)
+                if(_distanceJoints < _closestDistance && connectionPoints[i].gameObject.transform.localPosition.y - point.transform.localPosition.y != 0)
                 {
                     _closestDistance = _distanceJoints;
 
-                    _closestConnection = a.gameObject;
+                    _closestConnection = point.gameObject;
                     _closestConnectionSelf = connectionPoints[i].gameObject;
                 }
             }
@@ -95,6 +98,8 @@ public class ObjectConections : MonoBehaviour
 
     public void SetObjectPosition(List<GameObject> closestConnection)
     {
+        onConnect?.Invoke();
+
         var _finalPos = closestConnection[0].transform.position;
         var _offset = gameObject.transform.position - closestConnection[1].transform.position;
 
@@ -107,17 +112,14 @@ public class ObjectConections : MonoBehaviour
     [System.Obsolete]
     public void AddConnectedItem(GameObject Connection)
     {
-        //Ik connect aan een object
-        //Connection.transform.parent.SetParent(AtachmentPoint.transform, true);
-
-
         gameObject.transform.SetParent(Connection.transform.parent.FindChild("AtachmentPoint"));
     }
 
     public void RemoveConnectedItems(GameObject Connection)
     {
+        onDetach?.Invoke();
+
         gameObject.transform.SetParent(null, true);
-        //AtachmentPoint.transform.DetachChildren();
         StartCoroutine(Timer(0.5f));
     }
 
