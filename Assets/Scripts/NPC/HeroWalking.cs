@@ -21,8 +21,9 @@ public sealed class HeroWalking : MonoBehaviour
     public Transform StandInFrontBlacksmithPos { private get; set; }
 
     private bool _isActive;
+    private bool _wasWalkingBack;
 
-    [Header("Events")]
+        [Header("Events")]
     [SerializeField] private UnityEvent onStandingInFrontBlackSmith = new UnityEvent();
     [SerializeField] private UnityEvent onWalkingBack = new UnityEvent();
 
@@ -41,7 +42,11 @@ public sealed class HeroWalking : MonoBehaviour
                 break;
             case HeroState.WalkingBack:
                 onWalkingBack?.Invoke();
-                FindObjectOfType<HeroWalkCyle>().StartWalkingNewHero();
+                if (!_wasWalkingBack)
+                {
+                    _wasWalkingBack = true;
+                    FindObjectOfType<HeroWalkCyle>().StartWalkingNewHero();
+                }
                 WalkToTarget(StartingPos.position);
                 break;
             default:

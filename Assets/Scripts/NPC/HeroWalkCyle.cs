@@ -3,8 +3,8 @@ using UnityEngine;
 public sealed class HeroWalkCyle : MonoBehaviour
 {
     [Header("Postions")]
-    [SerializeField] public Transform startingPos;
-    [SerializeField] public Transform standInFrontBlacksmithPos;
+    [SerializeField] private Transform startingPos;
+    [SerializeField] private Transform standInFrontBlacksmithPos;
     
     [Header("Hero stuff")]
     [SerializeField] private HeroWalking currentHero;
