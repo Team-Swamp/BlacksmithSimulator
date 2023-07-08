@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff35cad0b1805b4bbd6cf4474a00a13, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  dialogue:
-  - 'This is stupid
-
-    hello
-
-    goodbye'
-  - 'this is also stupid
-
-    yes
-
-    it is'
+  textWithKey:
+  - dialogue:
+    - Random 1
+    keyword: 0
+  - dialogue:
+    - Mark awesome
+    keyword: 2
+  - dialogue:
+    - Ryan!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    keyword: 1

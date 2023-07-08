@@ -6,7 +6,7 @@ using UnityEngine;
 public class TypeWriterEffect : MonoBehaviour
 {
     [SerializeField] private float typeWriterSpeed;
-        
+
     public Coroutine Run(string textToType, TMP_Text textLabel)
     {
         return StartCoroutine(TypeText(textToType, textLabel));
@@ -15,7 +15,7 @@ public class TypeWriterEffect : MonoBehaviour
     private IEnumerator TypeText(string textToType, TMP_Text textLabel)
     {
         textLabel.text = string.Empty;
-        
+
         var theText = 0f;
         var charIndex = 0;
 
@@ -26,7 +26,6 @@ public class TypeWriterEffect : MonoBehaviour
             charIndex = Mathf.Clamp(charIndex, 0, textToType.Length);
 
             textLabel.text = textToType.Substring(0, charIndex);
-            
             yield return null;
         }
 
