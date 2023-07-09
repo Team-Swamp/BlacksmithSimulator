@@ -27,7 +27,13 @@ public sealed class DragAndDrop : MonoBehaviour
     {
         SelectNewItemToDrag();
         
-        if(Input.GetMouseButtonUp(1)) onStopDragging?.Invoke();
+        if (Input.GetKeyDown(KeyCode.R)) // R for Remove item
+        {
+            _itemManager.RemoveItems(_lastDraggedItemCollider.gameObject);
+            Destroy(_lastDraggedItemCollider.gameObject);
+        }
+        
+        if (Input.GetMouseButtonUp(1)) onStopDragging?.Invoke();
         
         if (!Input.GetMouseButton(1)) return;
 
