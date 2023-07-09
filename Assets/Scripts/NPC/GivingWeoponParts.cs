@@ -31,6 +31,7 @@ public class GivingWeoponParts : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
+        Debug.Log(score);
     }
 
     public void SetScore(int targetScore) => score = (WeaponScore)targetScore;

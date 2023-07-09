@@ -11,11 +11,6 @@ public class GradingSystem : MonoBehaviour
     [SerializeField] private WeaponScore weaponScore;
     private int _score;
 
-    private void Start()
-    {
-        SetDeposititWeapon(weapon); //todo: dit moet gebeuren wanneer de weapondepoit button is gedrukt.
-    }
-
     public void GetScore()
     {
         if (_score == 0)
@@ -42,12 +37,16 @@ public class GradingSystem : MonoBehaviour
         {
             weaponScore = WeaponScore.Legendary;
         }
-        
-        Debug.Log(_score);
+
+        currentHeroDesiers.gameObject.GetComponent<GivingWeoponParts>().score = weaponScore;
     }
     
-    public void SetDeposititWeapon(GameObject weapon)
+    public void SetDeposititWeapon()
     {
+        weapon = FindObjectOfType<WeaponDeposit>().GetDepositedWeapon();
+
+        _score = 0;
+        
         var data = weapon.GetComponentsInChildren<WeaponPartData>();
         foreach (var a in data)
         {
