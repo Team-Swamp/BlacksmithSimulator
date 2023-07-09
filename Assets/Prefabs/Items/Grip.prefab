@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7608007775892938375}
   - component: {fileID: 2933997113523270938}
   - component: {fileID: 3085372157519537242}
+  - component: {fileID: -2730319072793251393}
   m_Layer: 0
   m_Name: Grip
   m_TagString: DraggableItem
@@ -130,6 +131,19 @@ MonoBehaviour:
   onDetach:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-2730319072793251393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578208500938970480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00f6fc793e3ae540b864f64a01b88fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <WeaponPartsDesirables>k__BackingField: 000000000300000007000000
 --- !u!1 &5566915962605289349
 GameObject:
   m_ObjectHideFlags: 0

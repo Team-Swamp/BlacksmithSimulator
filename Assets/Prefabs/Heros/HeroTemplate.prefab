@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5176609263841595616}
   - component: {fileID: 5176609263841595618}
   - component: {fileID: 3640735238371123531}
+  - component: {fileID: 5817885812475465930}
   m_Layer: 0
   m_Name: HeroTemplate
   m_TagString: Untagged
@@ -99,31 +100,7 @@ MonoBehaviour:
   positionMargin: 0.15
   onStandingInFrontBlackSmith:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3640735238371123531}
-        m_TargetAssemblyTypeName: GivingWeoponParts, Assembly-CSharp
-        m_MethodName: SetScore
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3640735238371123531}
-        m_TargetAssemblyTypeName: GivingWeoponParts, Assembly-CSharp
-        m_MethodName: SelectItems
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onWalkingBack:
     m_PersistentCalls:
       m_Calls: []
@@ -141,3 +118,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPartToGive: 0
   score: 0
+--- !u!114 &5817885812475465930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176609263841595621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4e70571b64aab468388a4cea14381c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 1924fcd8e85a45942b69b77bd1f10e56, type: 2}

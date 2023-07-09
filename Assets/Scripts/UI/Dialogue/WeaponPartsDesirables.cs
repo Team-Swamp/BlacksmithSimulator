@@ -2,11 +2,11 @@ public enum WeaponPartsDesirables
 {
     Sharp,
     Blunt,
-    Long,
     Pointy,
+    Long,
     Hot,
     Cold,
-    Venomous,
+    Toxic,
     Big,
     Small
 }
