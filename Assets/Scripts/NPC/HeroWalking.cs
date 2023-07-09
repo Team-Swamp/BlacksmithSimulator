@@ -44,9 +44,7 @@ public sealed class HeroWalking : MonoBehaviour
                 WalkToTarget(StandInFrontBlacksmithPos.position);
                 break;
             case HeroState.Standing:
-                _gradingSystem.GetScore();
                 onStandingInFrontBlackSmith?.Invoke();
-                //todo: wanneer je weapon depoist moet dit gebeuren
                 break;
             case HeroState.WalkingBack:
                 onWalkingBack?.Invoke();

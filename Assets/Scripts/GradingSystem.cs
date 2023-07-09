@@ -38,7 +38,10 @@ public class GradingSystem : MonoBehaviour
             weaponScore = WeaponScore.Legendary;
         }
 
-        currentHeroDesiers.gameObject.GetComponent<GivingWeoponParts>().score = weaponScore;
+        var givingWeeponParts = currentHeroDesiers.gameObject.GetComponent<GivingWeoponParts>();
+        
+        givingWeeponParts.score = weaponScore;
+        givingWeeponParts.SelectItems();
     }
     
     public void SetDeposititWeapon()

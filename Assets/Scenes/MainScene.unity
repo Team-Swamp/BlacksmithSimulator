@@ -810,7 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f99fd3498da22241ae9b289c44ece0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHeroDesiers: {fileID: 1965591578}
+  currentHeroDesiers: {fileID: 0}
   weapon: {fileID: 1023015814}
   weaponScore: 0
 --- !u!4 &191566924
@@ -1317,6 +1317,18 @@ MonoBehaviour:
       - m_Target: {fileID: 191566923}
         m_TargetAssemblyTypeName: GradingSystem, Assembly-CSharp
         m_MethodName: SetDeposititWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 191566923}
+        m_TargetAssemblyTypeName: GradingSystem, Assembly-CSharp
+        m_MethodName: GetScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7683,7 +7695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6941448661308720364, guid: 5ee2706e3c0d6df49b36aeaf3a1f76ef, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6941448661308720364, guid: 5ee2706e3c0d6df49b36aeaf3a1f76ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9741,50 +9753,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a23a34adf8453524094564179435f89e, type: 3}
---- !u!1 &1965591577
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1965591579}
-  - component: {fileID: 1965591578}
-  m_Layer: 0
-  m_Name: Hero
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1965591578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965591577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c4e70571b64aab468388a4cea14381c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 1924fcd8e85a45942b69b77bd1f10e56, type: 2}
---- !u!4 &1965591579
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965591577}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1896517, y: 1.1922055, z: 0.5775505}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2002583181
 GameObject:
   m_ObjectHideFlags: 0
