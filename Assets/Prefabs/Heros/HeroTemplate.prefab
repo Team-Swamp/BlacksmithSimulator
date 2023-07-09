@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5176609263841595616}
   - component: {fileID: 5176609263841595618}
   - component: {fileID: 3640735238371123531}
-  - component: {fileID: 5817885812475465930}
+  - component: {fileID: 1650560251696495101}
   m_Layer: 0
   m_Name: HeroTemplate
   m_TagString: Untagged
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b27dcb4b876dbc8469321cef2fe01dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   walkSpeed: 1
   positionMargin: 0.15
   onStandingInFrontBlackSmith:
@@ -116,12 +116,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a47394261f880649b88906fcfa2d2de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   weaponPartToGive: 0
   positiveResponds: {fileID: 11400000, guid: f8d410114b3bc8242a12ce8f283298c4, type: 2}
   negativeResponds: {fileID: 11400000, guid: d98d517a2d76c4241906f9425bbebfcb, type: 2}
+  audioSource: {fileID: 1650560251696495101}
+  happySound: {fileID: 8300000, guid: d1bf45c90914c75488767e7fee344e7a, type: 3}
+  sadSound: {fileID: 8300000, guid: c2ff6984d11ebe3408797dc239a8f545, type: 3}
   score: 0
+--- !u!82 &1650560251696495101
+AudioSource:
 --- !u!114 &5817885812475465930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,8 +135,96 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5176609263841595621}
   m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c4e70571b64aab468388a4cea14381c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   dialogue: {fileID: 11400000, guid: 1924fcd8e85a45942b69b77bd1f10e56, type: 2}
