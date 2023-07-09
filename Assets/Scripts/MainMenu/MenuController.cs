@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] private string sceneName;
-    [SerializeField] private GameObject activeObject;
+    [SerializeField] private GameObject activeExplanationMenu;
+    [SerializeField] private GameObject activeMainMenu;
+
+    private bool _setUi;
 
 
     private void Update()
@@ -13,9 +16,16 @@ public class MenuController : MonoBehaviour
         BackToMainMenu();
     }
 
-    public void GoToThisScreen()
+    public void GoToExplantion()
     {
-        activeObject.SetActive(this);
+        activeExplanationMenu.SetActive(this);
+        activeMainMenu.SetActive(false);
+    }
+
+    public void GoToMainMenu()
+    {
+        activeExplanationMenu.SetActive(false);
+        activeMainMenu.SetActive(true);
     }
 
     public void CreditScreen()
