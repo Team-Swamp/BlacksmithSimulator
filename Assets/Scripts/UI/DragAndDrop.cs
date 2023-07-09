@@ -4,7 +4,8 @@ using UnityEngine.Events;
 public sealed class DragAndDrop : MonoBehaviour
 {
     [SerializeField] private GameObject currentItemToDrag;
-    
+    private ItemManager _itemManager;
+
     [Header("Settings")]
     [SerializeField, Tooltip("The offset where the item is going to be dragged.")] private float dragOffset = 1;
     [SerializeField] private Transform spawnPointForItems;
@@ -17,6 +18,11 @@ public sealed class DragAndDrop : MonoBehaviour
     [SerializeField] private UnityEvent onSpawnItem = new UnityEvent();
     [SerializeField] private UnityEvent onStopDragging = new UnityEvent();
 
+    private void Start()
+    {
+        _itemManager = FindObjectOfType<ItemManager>();
+    }
+
     private void Update()
     {
         SelectNewItemToDrag();
@@ -24,7 +30,7 @@ public sealed class DragAndDrop : MonoBehaviour
         if(Input.GetMouseButtonUp(1)) onStopDragging?.Invoke();
         
         if (!Input.GetMouseButton(1)) return;
-        
+
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out var hit))
@@ -34,6 +40,8 @@ public sealed class DragAndDrop : MonoBehaviour
         }
 
         if (!currentItemToDrag) return;
+
+        currentItemToDrag.GetComponent<ObjectConections>().SetObjectConnection();
         
         var itemPos = new Vector3(_mousePos.x, _mousePos.y, dragOffset);
         currentItemToDrag.transform.position = itemPos;
@@ -53,12 +61,15 @@ public sealed class DragAndDrop : MonoBehaviour
             
             currentItemToDrag = hit1.collider.gameObject;
             _lastDraggedItemCollider = currentItemToDrag.GetComponent<Collider>();
+
+            currentItemToDrag.GetComponent<ObjectConections>().RemoveConnectedItems(hit1.collider.gameObject);
         }
     }
 
     public void SetItemToDrag(GameObject targetItem)
     {
         currentItemToDrag = Instantiate(targetItem, spawnPointForItems.position, targetItem.transform.rotation);
+        _itemManager.AddItems(currentItemToDrag);
         onSpawnItem?.Invoke();
     }
 }
