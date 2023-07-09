@@ -25,7 +25,6 @@ public class GivingWeoponParts : MonoBehaviour
         {
             case WeaponScore.Squalid:
             case WeaponScore.Common:
-                //todo: Negative dialog
                 dialogueUI.ShowDialogue(negativeResponds);
                 StartCoroutine(StartWaling());
                 break;
@@ -33,7 +32,6 @@ public class GivingWeoponParts : MonoBehaviour
             case WeaponScore.Rare:
             case WeaponScore.Epic:
             case WeaponScore.Legendary:
-                //todo: Positive dialog
                 dialogueUI.ShowDialogue(positiveResponds);
                 _inventory.ActivatePart(weaponPartToGive);
                 StartCoroutine(StartWaling());

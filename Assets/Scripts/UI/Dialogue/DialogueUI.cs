@@ -50,18 +50,18 @@ public class DialogueUI : MonoBehaviour
         CloseDialogueBox();
     }
 
-    private bool SetNextDialogue(KeyWithText keyWithText)
-    {
-        if (_dialogueIndex >= keyWithText.Dialogue.Length) return false;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _randomDialogue = keyWithText.Dialogue[_dialogueIndex];
-            _dialogueIndex++;
-            return true;
-        }
+     private bool SetNextDialogue(KeyWithText keyWithText)
+     {
+         if (_dialogueIndex >= keyWithText.Dialogue.Length) return false;
+         if (Input.GetKeyDown(KeyCode.Space))
+         {
+             _randomDialogue = keyWithText.Dialogue[_dialogueIndex];
+             _dialogueIndex++;
+             return true;
+         }
 
-        return false;
-    }
+         return false;
+     }
     
     private void CloseDialogueBox()
     {

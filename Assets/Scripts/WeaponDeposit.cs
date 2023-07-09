@@ -8,8 +8,6 @@ public class WeaponDeposit : MonoBehaviour
     [SerializeField] private List<GameObject> WeaponDepositLocations;
     [SerializeField] private List<GameObject> DepositedWeapons;
 
-    [SerializeField] private DialogueUI dialogueUI;
-
     [SerializeField] private int _nextWeaponposition = 0;
     private GameObject _currentWeapon;
     private GameObject _depositedWeapon;
@@ -19,13 +17,6 @@ public class WeaponDeposit : MonoBehaviour
         for (int i = 0; i < 3; i++) DepositedWeapons.Add(null);
     }
 
-    public void RepondsToWeapon()
-    {
-        //if de weapon is een neutrale kwaliteit of beter dan moet die gaan naar een random postive responds
-        
-        //if de weapon is een slechte kwaliteit of worse dan moet die gaan naar een random negative responds
-    }
-    
     public void GetFinalWeapon()
     {
         var finalWeapon = new GameObject();
