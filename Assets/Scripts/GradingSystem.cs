@@ -55,14 +55,14 @@ public class GradingSystem : MonoBehaviour
         {
             foreach (var desirable in a.WeaponPartsDesirables)
             {
-                Debug.Log("weaponpart: " + desirable);
                 foreach (var keyword in currentHeroDesiers.GetHeroData().TextWithKey)
                 {
-                    Debug.Log("Hero: " + keyword.Keyword);
                     if (desirable == keyword.Keyword) _score++;
                 }
             }
         }
+
+        weapon = null;
     }
 
     public void SetHero(Diserars target)

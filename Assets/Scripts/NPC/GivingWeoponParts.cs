@@ -5,6 +5,8 @@ using UnityEngine;
 public class GivingWeoponParts : MonoBehaviour
 {
     [SerializeField] private int weaponPartToGive;
+    [SerializeField] private DialogueObject positiveResponds;
+    [SerializeField] private DialogueObject negativeResponds;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip happySound;
     [SerializeField] private AudioClip sadSound;
@@ -12,8 +14,13 @@ public class GivingWeoponParts : MonoBehaviour
     public WeaponScore score;
 
     private Inventory _inventory;
+    private DialogueUI dialogueUI;
 
-    private void Start() => _inventory = FindObjectOfType<Inventory>();
+    private void Start()
+    {
+        _inventory = FindObjectOfType<Inventory>();
+        dialogueUI = FindObjectOfType<DialogueUI>();
+    }
 
     public void SelectItems()
     {
@@ -21,7 +28,7 @@ public class GivingWeoponParts : MonoBehaviour
         {
             case WeaponScore.Squalid:
             case WeaponScore.Common:
-                //todo: Negative dialog
+                dialogueUI.ShowDialogue(negativeResponds);
                 audioSource.clip = sadSound;
                 StartCoroutine(StartWaling());
                 break;
@@ -29,7 +36,7 @@ public class GivingWeoponParts : MonoBehaviour
             case WeaponScore.Rare:
             case WeaponScore.Epic:
             case WeaponScore.Legendary:
-                //todo: Positive dialog
+                dialogueUI.ShowDialogue(positiveResponds);
                 _inventory.ActivatePart(weaponPartToGive);
                 audioSource.clip = happySound;
                 StartCoroutine(StartWaling());

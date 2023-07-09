@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ff35cad0b1805b4bbd6cf4474a00a13, type: 3}
-  m_Name: Test
+  m_Name: RespondsNegative
   m_EditorClassIdentifier: 
   textWithKey:
   - dialogue:
-    - 'I want a sharp '
+    - ewwww
     - fefefe
     keyword: 0
   - dialogue:
-    - Mark awesome
+    - Never show your face again
     - the
     keyword: 2
   - dialogue:
-    - Ryan!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    - I didn't want this
     - ef
     keyword: 1

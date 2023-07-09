@@ -22,14 +22,20 @@ public sealed class HeroWalking : MonoBehaviour
 
     private bool _isActive;
     private bool _wasWalkingBack;
+    private bool _startTalking;
     private GradingSystem _gradingSystem;
 
     [Header("Events")]
     [SerializeField] private UnityEvent onStandingInFrontBlackSmith = new UnityEvent();
     [SerializeField] private UnityEvent onWalkingBack = new UnityEvent();
 
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private DialogueUI dialogueUI;
+
     private void Start()
     {
+        canvas = FindObjectOfType<Canvas>();
+        dialogueUI = canvas.GetComponent<DialogueUI>();
         _gradingSystem = FindObjectOfType<GradingSystem>();
     }
 
@@ -44,6 +50,11 @@ public sealed class HeroWalking : MonoBehaviour
                 WalkToTarget(StandInFrontBlacksmithPos.position);
                 break;
             case HeroState.Standing:
+                if (!_startTalking)
+                {
+                    _startTalking = true;
+                    dialogueUI.StartDialogue();
+                }
                 onStandingInFrontBlackSmith?.Invoke();
                 break;
             case HeroState.WalkingBack:
