@@ -27,15 +27,16 @@ public sealed class DragAndDrop : MonoBehaviour
     {
         SelectNewItemToDrag();
         
-        if (Input.GetKeyDown(KeyCode.R)) // R for Remove item
+        if (Input.GetMouseButtonUp(1) && currentItemToDrag != null) // Rightmousebutton for remove item
         {
-            _itemManager.RemoveItems(_lastDraggedItemCollider.gameObject);
-            Destroy(_lastDraggedItemCollider.gameObject);
+            _itemManager.RemoveItems(currentItemToDrag);
+            Destroy(currentItemToDrag);
+            currentItemToDrag = null;
         }
         
-        if (Input.GetMouseButtonUp(1)) onStopDragging?.Invoke();
+        if (Input.GetMouseButtonUp(0)) onStopDragging?.Invoke();
         
-        if (!Input.GetMouseButton(1)) return;
+        if (!Input.GetMouseButton(0)) return;
 
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -47,7 +48,7 @@ public sealed class DragAndDrop : MonoBehaviour
 
         if (!currentItemToDrag) return;
 
-        currentItemToDrag.GetComponent<ObjectConections>().SetObjectConnection();
+        if (_itemManager.GetItems().Count > 0) currentItemToDrag.GetComponent<ObjectConections>().SetObjectConnection();
         
         var itemPos = new Vector3(_mousePos.x, _mousePos.y, dragOffset);
         currentItemToDrag.transform.position = itemPos;
@@ -56,7 +57,7 @@ public sealed class DragAndDrop : MonoBehaviour
 
     private void SelectNewItemToDrag()
     {
-        if (!Input.GetMouseButtonDown(1)) return;
+        if (!Input.GetMouseButtonDown(0)) return;
         
         var ray1 = Camera.main.ScreenPointToRay(Input.mousePosition);
 

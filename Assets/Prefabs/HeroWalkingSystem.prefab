@@ -80,7 +80,7 @@ MonoBehaviour:
   currentHero: {fileID: 0}
   heros:
   - {fileID: 5176609263841595621, guid: 7cafcbb327769454aa04cf94f07d7e1f, type: 3}
-  - {fileID: 5176609263841595621, guid: 7cafcbb327769454aa04cf94f07d7e1f, type: 3}
+  - {fileID: 6747761090199465719, guid: e50edb751faeb4f4a835d9381bd33493, type: 3}
 --- !u!1 &9148274923261825376
 GameObject:
   m_ObjectHideFlags: 0

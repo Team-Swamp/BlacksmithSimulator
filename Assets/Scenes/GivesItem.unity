@@ -1359,11 +1359,6 @@ PrefabInstance:
       objectReference: {fileID: 1735279958}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a23a34adf8453524094564179435f89e, type: 3}
---- !u!1 &626254295 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5076633009292993910, guid: 5c7ad9e1b9e3d60489842a9455ee0a4a, type: 3}
-  m_PrefabInstance: {fileID: 5076633008669033633}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &626254296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5076633009292993913, guid: 5c7ad9e1b9e3d60489842a9455ee0a4a, type: 3}
@@ -4357,10 +4352,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 115552305456560321, guid: eab0e3c478c519547890357f61c39709, type: 3}
-      propertyPath: currentItemToDrag
-      value: 
-      objectReference: {fileID: 626254295}
-    - target: {fileID: 115552305456560321, guid: eab0e3c478c519547890357f61c39709, type: 3}
       propertyPath: spawnPointForItems
       value: 
       objectReference: {fileID: 626254296}
@@ -4591,10 +4582,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9148274923124952886, guid: 3b0b25839b8c92f44bad5fa82031e135, type: 3}
-      propertyPath: heros.Array.data[1]
-      value: 
-      objectReference: {fileID: 6747761090199465719, guid: e50edb751faeb4f4a835d9381bd33493, type: 3}
     - target: {fileID: 9148274923124952887, guid: 3b0b25839b8c92f44bad5fa82031e135, type: 3}
       propertyPath: m_Name
       value: HeroWalkingSystem

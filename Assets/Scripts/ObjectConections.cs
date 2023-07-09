@@ -47,7 +47,6 @@ public class ObjectConections : MonoBehaviour
         }
     }
 
-
     public GameObject GetClosestObject()
     {
         var _items = _itemManager.GetItems();
