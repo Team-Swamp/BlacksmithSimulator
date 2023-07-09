@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class GivingWeoponParts : MonoBehaviour
@@ -22,7 +23,7 @@ public class GivingWeoponParts : MonoBehaviour
             case WeaponScore.Common:
                 //todo: Negative dialog
                 audioSource.clip = sadSound;
-                StartWalking();
+                StartCoroutine(StartWaling());
                 break;
             case WeaponScore.Uncommon:
             case WeaponScore.Rare:
@@ -31,7 +32,7 @@ public class GivingWeoponParts : MonoBehaviour
                 //todo: Positive dialog
                 _inventory.ActivatePart(weaponPartToGive);
                 audioSource.clip = happySound;
-                StartWalking();
+                StartCoroutine(StartWaling());
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -40,6 +41,12 @@ public class GivingWeoponParts : MonoBehaviour
     }
 
     public void SetScore(int targetScore) => score = (WeaponScore)targetScore;
-    
+
     private void StartWalking() => GetComponent<HeroWalking>().SetToWalkingBackState();
+
+    private IEnumerator StartWaling()
+    {
+        yield return new WaitForSeconds(1f);
+        GetComponent<HeroWalking>().SetToWalkingBackState();
+    }
 }

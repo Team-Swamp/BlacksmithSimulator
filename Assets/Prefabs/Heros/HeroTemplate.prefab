@@ -94,37 +94,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b27dcb4b876dbc8469321cef2fe01dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   walkSpeed: 1
   positionMargin: 0.15
   onStandingInFrontBlackSmith:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3640735238371123531}
-        m_TargetAssemblyTypeName: GivingWeoponParts, Assembly-CSharp
-        m_MethodName: SetScore
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3640735238371123531}
-        m_TargetAssemblyTypeName: GivingWeoponParts, Assembly-CSharp
-        m_MethodName: SelectItems
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onWalkingBack:
     m_PersistentCalls:
       m_Calls: []
@@ -138,8 +114,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a47394261f880649b88906fcfa2d2de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   weaponPartToGive: 0
   audioSource: {fileID: 1650560251696495101}
   happySound: {fileID: 8300000, guid: d1bf45c90914c75488767e7fee344e7a, type: 3}
@@ -147,6 +123,8 @@ MonoBehaviour:
   score: 0
 --- !u!82 &1650560251696495101
 AudioSource:
+--- !u!114 &5817885812475465930
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -241,3 +219,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4e70571b64aab468388a4cea14381c, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  dialogue: {fileID: 11400000, guid: 1924fcd8e85a45942b69b77bd1f10e56, type: 2}
