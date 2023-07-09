@@ -4,6 +4,9 @@ using UnityEngine;
 public class GivingWeoponParts : MonoBehaviour
 {
     [SerializeField] private int weaponPartToGive;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip happySound;
+    [SerializeField] private AudioClip sadSound;
 
     public WeaponScore score;
 
@@ -18,6 +21,7 @@ public class GivingWeoponParts : MonoBehaviour
             case WeaponScore.Squalid:
             case WeaponScore.Common:
                 //todo: Negative dialog
+                audioSource.clip = sadSound;
                 StartWalking();
                 break;
             case WeaponScore.Uncommon:
@@ -26,11 +30,13 @@ public class GivingWeoponParts : MonoBehaviour
             case WeaponScore.Legendary:
                 //todo: Positive dialog
                 _inventory.ActivatePart(weaponPartToGive);
+                audioSource.clip = happySound;
                 StartWalking();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
+        audioSource.Play();
     }
 
     public void SetScore(int targetScore) => score = (WeaponScore)targetScore;
