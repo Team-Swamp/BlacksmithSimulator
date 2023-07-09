@@ -61,8 +61,6 @@ public class GradingSystem : MonoBehaviour
                 }
             }
         }
-
-        weapon = null;
     }
 
     public void SetHero(Diserars target)
