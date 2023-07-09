@@ -110,10 +110,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870cb861b728d3949b92daedbbd3f913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachPartsParticle: {fileID: 7501027022222470834, guid: e7fa36b39fd5e6f4e8ecc6994cef0c20, type: 3}
   connectionPoints: []
   onConnect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1801350036388534505, guid: 2097750bca32b8d469584395ae584e18, type: 3}
+        m_TargetAssemblyTypeName: ObjectConections, Assembly-CSharp
+        m_MethodName: ActivateParticleSystem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDetach:
     m_PersistentCalls:
       m_Calls: []

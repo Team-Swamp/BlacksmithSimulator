@@ -8,9 +8,11 @@ public class ObjectConections : MonoBehaviour
     private ItemManager _itemManager;
 
     private Vector3 size;
+    private Vector3 _connectionPos;
     private MeshRenderer renderer;
     private bool _isConnected;
 
+    [SerializeField] private ParticleSystem attachPartsParticle;
     [SerializeField] private List<GameObject> connectionPoints;
 
     [SerializeField] private UnityEvent onConnect;
@@ -32,7 +34,6 @@ public class ObjectConections : MonoBehaviour
         size = renderer.bounds.size;
     }
 
-
     public void SetObjectConnection()
     {
         GameObject closestItem = GetClosestObject();
@@ -47,7 +48,8 @@ public class ObjectConections : MonoBehaviour
         }
     }
 
-    public GameObject GetClosestObject()
+    private GameObject GetClosestObject()
+
     {
         var _items = _itemManager.GetItems();
         if (_items.Count == 0) return null;
@@ -71,7 +73,7 @@ public class ObjectConections : MonoBehaviour
         return _closestObject;
     }
 
-    public List<GameObject> GetClosestJoint(GameObject Item)
+    private List<GameObject> GetClosestJoint(GameObject Item)
     {
         float _closestDistance = 99;
 
@@ -100,12 +102,11 @@ public class ObjectConections : MonoBehaviour
         return _connectionPoints;
     }
 
-    public void SetObjectPosition(List<GameObject> closestConnection)
+    private void SetObjectPosition(List<GameObject> closestConnection)
     {
-        
-
         var _finalPos = closestConnection[0].transform.position;
         var _offset = gameObject.transform.position - closestConnection[1].transform.position;
+        _connectionPos = closestConnection[1].transform.position;
 
         gameObject.transform.position = _finalPos + _offset;
 
@@ -114,7 +115,7 @@ public class ObjectConections : MonoBehaviour
     }
 
     [System.Obsolete]
-    public void AddConnectedItem(GameObject Connection)
+    private void AddConnectedItem(GameObject Connection)
     {
         gameObject.transform.SetParent(Connection.transform.parent.FindChild("AtachmentPoint"));
         
@@ -135,10 +136,17 @@ public class ObjectConections : MonoBehaviour
         StartCoroutine(Timer(0.5f));
     }
 
-    IEnumerator Timer(float time)
+    private IEnumerator Timer(float time)
     {
         _canConnect = false;
         yield return new WaitForSeconds(time);
         _canConnect = true;
+    }
+    
+    public void ActivateParticleSystem()
+    {
+        var particleSystemObject = Instantiate(attachPartsParticle);
+        particleSystemObject.transform.position = _connectionPos;
+        //todo: Sounds can be placed here or make anhoter function and put in the same Unity Event
     }
 }
