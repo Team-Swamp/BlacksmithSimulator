@@ -19,17 +19,4 @@ public class ItemManager : MonoBehaviour
     {
         ItemList.Remove(item);
     }
-
-    public void GetFinalWeapon()
-    {
-        var finalWeapon = new GameObject();
-
-        foreach (var weaponPart in ItemList)
-        {
-            weaponPart.transform.SetParent(finalWeapon.transform);
-        }
-
-        Instantiate(finalWeapon);
-        // return finalWeapon;
-    }
 }
