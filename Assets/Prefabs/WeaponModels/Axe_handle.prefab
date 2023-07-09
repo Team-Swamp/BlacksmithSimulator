@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00f6fc793e3ae540b864f64a01b88fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <WeaponPartsDesirables>k__BackingField: 0300000007000000
+  <WeaponPartsDesirables>k__BackingField: 030000000700000001000000
 --- !u!1 &5406840318863387010
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,4 +19,13 @@ public class ItemManager : MonoBehaviour
     {
         ItemList.Remove(item);
     }
+
+    public void ClearList()
+    {
+        foreach (var part in ItemList)
+        {
+            Destroy(part.gameObject);
+        }
+        ItemList.Clear();
+    }
 }
