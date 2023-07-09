@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textWithKey:
   - dialogue:
-    - Random 1
+    - 'I want a sharp '
     - fefefe
     keyword: 0
   - dialogue:
