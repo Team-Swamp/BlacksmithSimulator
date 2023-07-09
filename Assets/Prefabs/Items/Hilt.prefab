@@ -184,9 +184,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870cb861b728d3949b92daedbbd3f913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 0, y: 0, z: 0}
   connectionPoints: []
-  AtachmentPoint: {fileID: 5920101459538646409}
+  onConnect:
+    m_PersistentCalls:
+      m_Calls: []
+  onDetach:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8791567803833446317
 GameObject:
   m_ObjectHideFlags: 0

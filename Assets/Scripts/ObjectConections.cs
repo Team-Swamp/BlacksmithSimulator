@@ -9,6 +9,7 @@ public class ObjectConections : MonoBehaviour
 
     private Vector3 size;
     private MeshRenderer renderer;
+    private bool _isConnected;
 
     [SerializeField] private List<GameObject> connectionPoints;
 
@@ -98,7 +99,7 @@ public class ObjectConections : MonoBehaviour
 
     public void SetObjectPosition(List<GameObject> closestConnection)
     {
-        onConnect?.Invoke();
+        
 
         var _finalPos = closestConnection[0].transform.position;
         var _offset = gameObject.transform.position - closestConnection[1].transform.position;
@@ -113,11 +114,19 @@ public class ObjectConections : MonoBehaviour
     public void AddConnectedItem(GameObject Connection)
     {
         gameObject.transform.SetParent(Connection.transform.parent.FindChild("AtachmentPoint"));
+        
+        if (_isConnected) return;
+        _isConnected = true;
+        onConnect?.Invoke();
     }
 
     public void RemoveConnectedItems(GameObject Connection)
     {
-        onDetach?.Invoke();
+        if (_isConnected)
+        {
+            _isConnected = false;
+            onDetach?.Invoke();
+        }
 
         gameObject.transform.SetParent(null, true);
         StartCoroutine(Timer(0.5f));
