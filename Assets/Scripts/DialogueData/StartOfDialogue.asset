@@ -14,14 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textWithKey:
   - dialogue:
-    - 'I want a sharp '
-    - fefefe
+    - I wish to have a weapon that is sharp hot, so that I can show off to the other
+      heroes.
     keyword: 0
   - dialogue:
-    - Mark awesome
-    - the
+    - Can you make a weapon that is pointy?
     keyword: 2
   - dialogue:
-    - Ryan!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    - ef
+    - "I\u2019m going on an adventure and I need a long weapon."
+    keyword: 3
+  - dialogue:
+    - 'Could you make a blunt weapon for me? '
     keyword: 1
+  - dialogue:
+    - I need a big weapon that I can add to my collection of weapons.
+    keyword: 7
+  - dialogue:
+    - On my next mission I need a small weapon, so that I can hide it in underneath
+      my armor.
+    keyword: 8

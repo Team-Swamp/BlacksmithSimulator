@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3640735238371123531, guid: 7cafcbb327769454aa04cf94f07d7e1f, type: 3}
+      propertyPath: weaponPartToGive
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5176609263841595621, guid: 7cafcbb327769454aa04cf94f07d7e1f, type: 3}
       propertyPath: m_Name
-      value: HeroTemplate
+      value: HeroTemplate Variant 1
       objectReference: {fileID: 0}
     - target: {fileID: 5176609263841595630, guid: 7cafcbb327769454aa04cf94f07d7e1f, type: 3}
       propertyPath: m_RootOrder

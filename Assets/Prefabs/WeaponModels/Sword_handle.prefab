@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8335815223205980918}
   - component: {fileID: -3337960396360219845}
   - component: {fileID: -1058076854049520262}
+  - component: {fileID: -2256115987247602815}
   m_Layer: 0
   m_Name: Sword_handle
   m_TagString: DraggableItem
@@ -80,6 +81,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.238038, y: 20.239914, z: 1}
   m_Center: {x: 0.018754452, y: 9.619957, z: 0}
+--- !u!114 &-2256115987247602815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3818817197000906803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00f6fc793e3ae540b864f64a01b88fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <WeaponPartsDesirables>k__BackingField: 08000000
 --- !u!1 &5854991076851787833
 GameObject:
   m_ObjectHideFlags: 0

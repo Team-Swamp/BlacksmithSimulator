@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 3410253661963805193}
   - component: {fileID: -8219129633848625803}
   - component: {fileID: 2260949099502522837}
+  - component: {fileID: -4469889128645744907}
   m_Layer: 0
   m_Name: Spear_head
   m_TagString: DraggableItem
@@ -153,6 +154,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.4889832, y: 10.361224, z: 1}
   m_Center: {x: -0.011013001, y: 5.055055, z: 0}
+--- !u!114 &-4469889128645744907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588273953128905955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00f6fc793e3ae540b864f64a01b88fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <WeaponPartsDesirables>k__BackingField: 000000000200000003000000
 --- !u!1001 &7875144438260706316
 PrefabInstance:
   m_ObjectHideFlags: 0
