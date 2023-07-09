@@ -37,6 +37,8 @@ public class ObjectConections : MonoBehaviour
     public void SetObjectConnection()
     {
         GameObject closestItem = GetClosestObject();
+        if (closestItem == null) return;
+        
         List<GameObject> closestConnection = GetClosestJoint(closestItem);
 
         if (closestConnection == null) return;
@@ -46,13 +48,15 @@ public class ObjectConections : MonoBehaviour
         }
     }
 
-
     private GameObject GetClosestObject()
+
     {
         var _items = _itemManager.GetItems();
+        if (_items.Count == 0) return null;
+        
         float _closestDistance = 99;
         GameObject _closestObject = null;
-
+        
         foreach (GameObject obj in _items)
         {
             if (obj.gameObject != this.gameObject)
