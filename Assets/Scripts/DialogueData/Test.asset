@@ -15,10 +15,13 @@ MonoBehaviour:
   textWithKey:
   - dialogue:
     - Random 1
+    - fefefe
     keyword: 0
   - dialogue:
     - Mark awesome
+    - the
     keyword: 2
   - dialogue:
     - Ryan!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    - ef
     keyword: 1
