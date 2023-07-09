@@ -51,7 +51,6 @@ public class DialogueUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _randomDialogue = keyWithText.Dialogue[_dialogueIndex];
-            print(_randomDialogue);
             _dialogueIndex++;
             return true;
         }
