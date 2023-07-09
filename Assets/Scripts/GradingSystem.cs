@@ -52,13 +52,19 @@ public class GradingSystem : MonoBehaviour
         {
             foreach (var desirable in a.WeaponPartsDesirables)
             {
-                foreach (var keyword in currentHeroDesiers.GetHeroData().TextWithKey.Where(keyword => desirable == keyword.Keyword))
+                Debug.Log("weaponpart: " + desirable);
+                foreach (var keyword in currentHeroDesiers.GetHeroData().TextWithKey)
                 {
-                    _score++;
+                    Debug.Log("Hero: " + keyword.Keyword);
+                    if (desirable == keyword.Keyword) _score++;
                 }
             }
         }
     }
 
-    public void SetHero(Diserars target) => currentHeroDesiers = target;
+    public void SetHero(Diserars target)
+    {
+        // Debug.Log(target.gameObject.name);
+        currentHeroDesiers = target;
+    } 
 }
