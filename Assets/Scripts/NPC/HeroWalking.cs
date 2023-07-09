@@ -22,8 +22,9 @@ public sealed class HeroWalking : MonoBehaviour
 
     private bool _isActive;
     private bool _wasWalkingBack;
+    private GradingSystem _gradingSystem;
 
-        [Header("Events")]
+    [Header("Events")]
     [SerializeField] private UnityEvent onStandingInFrontBlackSmith = new UnityEvent();
     [SerializeField] private UnityEvent onWalkingBack = new UnityEvent();
 
@@ -34,6 +35,7 @@ public sealed class HeroWalking : MonoBehaviour
     {
         canvas = FindObjectOfType<Canvas>();
         dialogueUI = canvas.GetComponent<DialogueUI>();
+        _gradingSystem = FindObjectOfType<GradingSystem>();
     }
 
     private void Update()
@@ -73,6 +75,7 @@ public sealed class HeroWalking : MonoBehaviour
         {
             case HeroState.WalkToBlackSmith:
                 _currentHeroState = HeroState.Standing;
+                _gradingSystem.SetHero(gameObject.GetComponent<Diserars>());
                 FindObjectOfType<HeroWalkCyle>().SpawnNewHero();
                 break;
             case HeroState.WalkingBack:

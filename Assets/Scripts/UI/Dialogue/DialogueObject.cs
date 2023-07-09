@@ -17,5 +17,5 @@ public struct KeyWithText
     [SerializeField] private WeaponPartsDesirables keyword;
     
     public string[] Dialogue => dialogue; //prevents overwrite
-    public string Keyword => keyword.ToString();
+    public WeaponPartsDesirables Keyword => keyword;
 }
