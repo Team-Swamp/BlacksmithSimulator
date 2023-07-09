@@ -27,6 +27,15 @@ public sealed class HeroWalking : MonoBehaviour
     [SerializeField] private UnityEvent onStandingInFrontBlackSmith = new UnityEvent();
     [SerializeField] private UnityEvent onWalkingBack = new UnityEvent();
 
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private DialogueUI dialogueUI;
+
+    private void Start()
+    {
+        canvas = FindObjectOfType<Canvas>();
+        dialogueUI = canvas.GetComponent<DialogueUI>();
+    }
+
     private void Update()
     {
         switch (_currentHeroState)
@@ -38,6 +47,7 @@ public sealed class HeroWalking : MonoBehaviour
                 WalkToTarget(StandInFrontBlacksmithPos.position);
                 break;
             case HeroState.Standing:
+                dialogueUI.StartDialogue();
                 onStandingInFrontBlackSmith?.Invoke();
                 break;
             case HeroState.WalkingBack:

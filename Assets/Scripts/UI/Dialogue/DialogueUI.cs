@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class DialogueUI : MonoBehaviour
@@ -15,11 +16,15 @@ public class DialogueUI : MonoBehaviour
     private int _dialogueIndex;
     private string _randomDialogue;
     private TypeWriterEffect _typeWriterEffect;
-    
+
     private void Start()
     {
         _typeWriterEffect = GetComponent<TypeWriterEffect>();
         CloseDialogueBox();
+    }
+
+    public void StartDialogue()
+    {
         ShowDialogue(testDialogue);
     }
 
