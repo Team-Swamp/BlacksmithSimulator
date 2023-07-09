@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 8053125696112056146}
   - component: {fileID: 8415608594810090582}
   - component: {fileID: -4170639750979379846}
+  - component: {fileID: -6818817230351614407}
   m_Layer: 0
   m_Name: Spear_shaft
   m_TagString: DraggableItem
@@ -124,6 +125,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.4480057, y: 36.610256, z: 0.99999243}
   m_Center: {x: 0.026814938, y: 17.80513, z: 0.000003837049}
+--- !u!114 &-6818817230351614407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443818532698161099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00f6fc793e3ae540b864f64a01b88fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <WeaponPartsDesirables>k__BackingField: 03000000
 --- !u!1 &6343723732486353871
 GameObject:
   m_ObjectHideFlags: 0

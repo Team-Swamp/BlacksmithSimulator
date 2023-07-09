@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textWithKey:
   - dialogue:
-    - this is good
-    - fefefe
+    - Oh wow, this was just the weapon I have been looking for!
     keyword: 0
   - dialogue:
-    - super aweome
-    - the
+    - Super aweome.
     keyword: 2
   - dialogue:
-    - i want more yesss
-    - ef
+    - I want more yesss.
+    keyword: 1
+  - dialogue:
+    - Thank you!
+    keyword: 1
+  - dialogue:
+    - "This is sooo gooood, I\u2019m gonna show this off to all the other heroes!"
     keyword: 1

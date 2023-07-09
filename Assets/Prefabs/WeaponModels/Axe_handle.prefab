@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 6613100777955582323}
   - component: {fileID: -2436172785499489127}
   - component: {fileID: -3982367237943877647}
+  - component: {fileID: 9142828575249311916}
   m_Layer: 0
   m_Name: Axe_handle
   m_TagString: DraggableItem
@@ -111,6 +112,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.2449028, y: 30.697449, z: 1}
   m_Center: {x: -0.06786421, y: 14.848724, z: 0}
+--- !u!114 &9142828575249311916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3905860310399558703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00f6fc793e3ae540b864f64a01b88fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <WeaponPartsDesirables>k__BackingField: 0300000007000000
 --- !u!1 &5406840318863387010
 GameObject:
   m_ObjectHideFlags: 0

@@ -4342,7 +4342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DESPOIST WEAPON
+  m_text: DEPOSIT WEAPON
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6391,6 +6391,14 @@ PrefabInstance:
     - target: {fileID: 5918757534516952487, guid: 719cb460859d5d549965dbcce7bc7358, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114759314054767445, guid: 719cb460859d5d549965dbcce7bc7358, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 130.6435
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114759314054767445, guid: 719cb460859d5d549965dbcce7bc7358, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -65.32178
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 719cb460859d5d549965dbcce7bc7358, type: 3}

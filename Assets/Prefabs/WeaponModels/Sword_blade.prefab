@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4030226747945867511}
   - component: {fileID: 1136124257190787594}
   - component: {fileID: -6087763955336150651}
+  - component: {fileID: -6556737465829447603}
   m_Layer: 0
   m_Name: Sword_blade
   m_TagString: DraggableItem
@@ -81,6 +82,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.86269, y: 18.019371, z: 1}
   m_Center: {x: 0.00000044703484, y: 8.990898, z: 0}
+--- !u!114 &-6556737465829447603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395105871497111733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00f6fc793e3ae540b864f64a01b88fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <WeaponPartsDesirables>k__BackingField: 0200000000000000
 --- !u!1 &5704313833872795970
 GameObject:
   m_ObjectHideFlags: 0

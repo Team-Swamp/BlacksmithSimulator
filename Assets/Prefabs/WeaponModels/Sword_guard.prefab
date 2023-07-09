@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8312201649902874270}
   - component: {fileID: 5907150475043464676}
   - component: {fileID: 8749774147517878588}
+  - component: {fileID: 7094427582714345806}
   m_Layer: 0
   m_Name: Sword_guard
   m_TagString: DraggableItem
@@ -81,6 +82,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 14.425101, y: 2.2392273, z: 1}
   m_Center: {x: -0.014743805, y: 1.1212158, z: 0}
+--- !u!114 &7094427582714345806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675341472698021302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00f6fc793e3ae540b864f64a01b88fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <WeaponPartsDesirables>k__BackingField: 01000000
 --- !u!1 &5470518991461234186
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,13 +15,19 @@ MonoBehaviour:
   textWithKey:
   - dialogue:
     - ewwww
-    - fefefe
     keyword: 0
   - dialogue:
     - Never show your face again
-    - the
     keyword: 2
   - dialogue:
     - I didn't want this
-    - ef
+    keyword: 1
+  - dialogue:
+    - "This is awful, I\u2019ll never go back to this shop again!"
+    keyword: 1
+  - dialogue:
+    - What is this piece of garbage?! This is not what I asked for!
+    keyword: 1
+  - dialogue:
+    - This weapon is terrible!
     keyword: 1
