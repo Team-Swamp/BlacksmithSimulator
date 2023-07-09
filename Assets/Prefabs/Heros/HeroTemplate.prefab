@@ -104,6 +104,8 @@ MonoBehaviour:
   onWalkingBack:
     m_PersistentCalls:
       m_Calls: []
+  canvas: {fileID: 0}
+  dialogueUI: {fileID: 0}
 --- !u!114 &3640735238371123531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPartToGive: 0
+  positiveResponds: {fileID: 11400000, guid: f8d410114b3bc8242a12ce8f283298c4, type: 2}
+  negativeResponds: {fileID: 11400000, guid: d98d517a2d76c4241906f9425bbebfcb, type: 2}
   score: 0
 --- !u!114 &5817885812475465930
 MonoBehaviour:

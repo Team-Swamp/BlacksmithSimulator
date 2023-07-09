@@ -22,6 +22,7 @@ public sealed class HeroWalking : MonoBehaviour
 
     private bool _isActive;
     private bool _wasWalkingBack;
+    private bool _startTalking;
     private GradingSystem _gradingSystem;
 
     [Header("Events")]
@@ -49,7 +50,11 @@ public sealed class HeroWalking : MonoBehaviour
                 WalkToTarget(StandInFrontBlacksmithPos.position);
                 break;
             case HeroState.Standing:
-                dialogueUI.StartDialogue();
+                if (!_startTalking)
+                {
+                    _startTalking = true;
+                    dialogueUI.StartDialogue();
+                }
                 onStandingInFrontBlackSmith?.Invoke();
                 break;
             case HeroState.WalkingBack:

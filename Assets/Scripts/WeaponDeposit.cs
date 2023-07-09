@@ -8,9 +8,6 @@ public class WeaponDeposit : MonoBehaviour
     [SerializeField] private List<GameObject> WeaponDepositLocations;
     [SerializeField] private List<GameObject> DepositedWeapons;
 
-    [SerializeField] private DialogueObject positiveResponds;
-    [SerializeField] private DialogueObject negativeResponds;
-
     [SerializeField] private DialogueUI dialogueUI;
 
     [SerializeField] private int _nextWeaponposition = 0;

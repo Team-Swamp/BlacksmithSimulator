@@ -7422,7 +7422,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 6390298048282226162}
   textlabel: {fileID: 6390298047370689311}
   keywordText: {fileID: 6390298048977182562}
-  testDialogue: {fileID: 0}
+  testDialogue: {fileID: 11400000, guid: 1924fcd8e85a45942b69b77bd1f10e56, type: 2}
 --- !u!1 &1611051778
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,13 +5,20 @@ using UnityEngine;
 public class GivingWeoponParts : MonoBehaviour
 {
     [SerializeField] private int weaponPartToGive;
+    [SerializeField] private DialogueObject positiveResponds;
+    [SerializeField] private DialogueObject negativeResponds;
 
     public WeaponScore score;
 
     private Inventory _inventory;
+    private DialogueUI dialogueUI;
 
-    private void Start() => _inventory = FindObjectOfType<Inventory>();
-
+    private void Start()
+    {
+        _inventory = FindObjectOfType<Inventory>();
+        dialogueUI = FindObjectOfType<DialogueUI>();
+    }
+    
     public void SelectItems()
     {
         switch (score)
@@ -19,6 +26,7 @@ public class GivingWeoponParts : MonoBehaviour
             case WeaponScore.Squalid:
             case WeaponScore.Common:
                 //todo: Negative dialog
+                dialogueUI.ShowDialogue(negativeResponds);
                 StartCoroutine(StartWaling());
                 break;
             case WeaponScore.Uncommon:
@@ -26,6 +34,7 @@ public class GivingWeoponParts : MonoBehaviour
             case WeaponScore.Epic:
             case WeaponScore.Legendary:
                 //todo: Positive dialog
+                dialogueUI.ShowDialogue(positiveResponds);
                 _inventory.ActivatePart(weaponPartToGive);
                 StartCoroutine(StartWaling());
                 break;
