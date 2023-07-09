@@ -13,8 +13,7 @@ public class GradingSystem : MonoBehaviour
 
     private void Start()
     {
-        SetDeposititWeapon(weapon);
-        GetScore();
+        SetDeposititWeapon(weapon); //todo: dit moet gebeuren wanneer de weapondepoit button is gedrukt.
     }
 
     public void GetScore()
@@ -62,5 +61,5 @@ public class GradingSystem : MonoBehaviour
         }
     }
 
-    public void SetCurrentHero(Diserars targetHero) => currentHeroDesiers = targetHero;
+    public void SetHero(Diserars target) => currentHeroDesiers = target;
 }
