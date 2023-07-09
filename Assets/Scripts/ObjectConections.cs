@@ -7,9 +7,9 @@ public class ObjectConections : MonoBehaviour
 {
     private ItemManager _itemManager;
 
-    private Vector3 size;
+    //private Vector3 size;
     private Vector3 _connectionPos;
-    private MeshRenderer renderer;
+    //private MeshRenderer renderer;
     private bool _isConnected;
 
     [SerializeField] private ParticleSystem attachPartsParticle;
@@ -30,8 +30,8 @@ public class ObjectConections : MonoBehaviour
             connectionPoints.Add(a.gameObject);
         }
 
-        renderer = GetComponent<MeshRenderer>();
-        size = renderer.bounds.size;
+        //renderer = GetComponent<MeshRenderer>();
+        //size = renderer.bounds.size;
     }
 
     public void SetObjectConnection()
@@ -42,7 +42,7 @@ public class ObjectConections : MonoBehaviour
         List<GameObject> closestConnection = GetClosestJoint(closestItem);
 
         if (closestConnection == null) return;
-        if (Vector3.Distance(closestConnection[0].transform.position, closestConnection[1].transform.position) < (size.y / 2) && _canConnect == true)
+        if (Vector3.Distance(closestConnection[0].transform.position, closestConnection[1].transform.position) < (1) && _canConnect == true)
         {
             SetObjectPosition(closestConnection);
         }

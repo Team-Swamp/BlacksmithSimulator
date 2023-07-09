@@ -80,3 +80,4 @@ public sealed class DragAndDrop : MonoBehaviour
         onSpawnItem?.Invoke();
     }
 }
+ 
