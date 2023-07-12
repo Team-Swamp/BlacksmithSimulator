@@ -4,30 +4,27 @@ using UnityEngine.Events;
 public sealed class DragAndDrop : MonoBehaviour
 {
     [SerializeField] private GameObject currentItemToDrag;
-    private ItemManager _itemManager;
 
     [Header("Settings")]
     [SerializeField, Tooltip("The offset where the item is going to be dragged.")] private float dragOffset = 1;
     [SerializeField] private Transform spawnPointForItems;
 
-    private Vector3 _mousePos;
-    private Collider _lastDraggedItemCollider;
-    
     [Header("Events")]
-    
     [SerializeField] private UnityEvent onSpawnItem = new UnityEvent();
     [SerializeField] private UnityEvent onStopDragging = new UnityEvent();
+    
+    private ItemManager _itemManager;
+    private Vector3 _mousePos;
+    private Collider _lastDraggedItemCollider;
 
-    private void Start()
-    {
-        _itemManager = FindObjectOfType<ItemManager>();
-    }
+    private void Start() => _itemManager = FindObjectOfType<ItemManager>();
 
     private void Update()
     {
         SelectNewItemToDrag();
         
-        if (Input.GetMouseButtonUp(1) && currentItemToDrag != null) // Rightmousebutton for remove item
+        if (Input.GetMouseButtonUp(1) // Rightmousebutton for remove item
+            && currentItemToDrag != null)
         {
             _itemManager.RemoveItems(currentItemToDrag);
             Destroy(currentItemToDrag);
@@ -54,6 +51,13 @@ public sealed class DragAndDrop : MonoBehaviour
         currentItemToDrag.transform.position = itemPos;
         if (_lastDraggedItemCollider) _lastDraggedItemCollider.enabled = false;
     }
+    
+    public void SetItemToDrag(GameObject targetItem)
+    {
+        currentItemToDrag = Instantiate(targetItem, spawnPointForItems.position, targetItem.transform.rotation);
+        _itemManager.AddItems(currentItemToDrag);
+        onSpawnItem?.Invoke();
+    }
 
     private void SelectNewItemToDrag()
     {
@@ -61,23 +65,20 @@ public sealed class DragAndDrop : MonoBehaviour
         
         var ray1 = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray1, out var hit1))
+        if (!Physics.Raycast(ray1, out var hit1)
+            && !hit1.collider.gameObject.CompareTag("DraggableItem"))
         {
-            if (!hit1.collider.gameObject.CompareTag("DraggableItem")) return;
-            if (_lastDraggedItemCollider) _lastDraggedItemCollider.enabled = true;
-            
-            currentItemToDrag = hit1.collider.gameObject;
-            _lastDraggedItemCollider = currentItemToDrag.GetComponent<Collider>();
-
-            currentItemToDrag.GetComponent<ObjectConections>().RemoveConnectedItems(hit1.collider.gameObject);
+            Debug.Log("geen item");
+            return;
         }
-    }
+        
+        if (_lastDraggedItemCollider) _lastDraggedItemCollider.enabled = true;
+            
+        currentItemToDrag = hit1.collider.gameObject;
+        _lastDraggedItemCollider = currentItemToDrag.GetComponent<Collider>();
 
-    public void SetItemToDrag(GameObject targetItem)
-    {
-        currentItemToDrag = Instantiate(targetItem, spawnPointForItems.position, targetItem.transform.rotation);
-        _itemManager.AddItems(currentItemToDrag);
-        onSpawnItem?.Invoke();
+        Debug.Log(currentItemToDrag.GetComponent<ObjectConections>());
+        currentItemToDrag.GetComponent<ObjectConections>().RemoveConnectedItems();
     }
 }
  
