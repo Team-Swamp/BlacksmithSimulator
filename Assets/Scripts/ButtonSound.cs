@@ -1,13 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonSound : MonoBehaviour
+public sealed class ButtonSound : MonoBehaviour
 {
     [SerializeField] private AudioSource source;
 
-    public void PlayButtonSound()
-    {
-        source.Play();
-    }
+    public void PlayButtonSound() => source.Play();
 }

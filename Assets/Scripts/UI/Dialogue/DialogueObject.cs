@@ -13,9 +13,9 @@ public class DialogueObject : ScriptableObject
 [Serializable]
 public struct KeyWithText
 {
-    [SerializeField] [TextArea] private string[] dialogue;
+    [SerializeField, TextArea] private string[] dialogue;
     [SerializeField] private WeaponPartsDesirables keyword;
     
-    public string[] Dialogue => dialogue; //prevents overwrite
+    public string[] Dialogue => dialogue;
     public WeaponPartsDesirables Keyword => keyword;
 }

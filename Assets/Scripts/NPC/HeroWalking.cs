@@ -53,7 +53,7 @@ public sealed class HeroWalking : MonoBehaviour
                 if (!_startTalking)
                 {
                     _startTalking = true;
-                    dialogueUI.StartDialogue();
+                    dialogueUI.ShowDialogue(null);
                 }
                 onStandingInFrontBlackSmith?.Invoke();
                 break;
@@ -89,13 +89,7 @@ public sealed class HeroWalking : MonoBehaviour
         }
     }
 
-    public void StartWalking()
-    {
-        _isActive = true;
-    }
+    public void StartWalking() => _isActive = true;
     
-    public void SetToWalkingBackState()
-    {
-        _currentHeroState = HeroState.WalkingBack;
-    }
+    public void SetToWalkingBackState() => _currentHeroState = HeroState.WalkingBack;
 }

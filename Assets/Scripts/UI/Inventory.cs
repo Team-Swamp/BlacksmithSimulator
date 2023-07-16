@@ -7,10 +7,7 @@ public sealed class Inventory : MonoBehaviour
     [SerializeField] private GameObject[] weaponPartButtons;
     [SerializeField] private bool[] activeWeaponPartButtons;
 
-    private void Awake()
-    {
-        activeWeaponPartButtons = new bool[weaponPartButtons.Length];
-    }
+    private void Awake() => activeWeaponPartButtons = new bool[weaponPartButtons.Length];
 
     public void ActivatePart(int targetPart)
     {
@@ -34,8 +31,5 @@ public sealed class Inventory : MonoBehaviour
         }
     }
     
-    private bool CheckAllButtonsActive()
-    {
-        return activeWeaponPartButtons.All(t => t);
-    }
+    private bool CheckAllButtonsActive() => activeWeaponPartButtons.All(t => t);
 }

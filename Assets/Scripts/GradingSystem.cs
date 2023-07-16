@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class GradingSystem : MonoBehaviour
+public sealed class GradingSystem : MonoBehaviour
 {
     [SerializeField] private Diserars currentHeroDesiers;
     [SerializeField] private GameObject weapon;
@@ -65,7 +61,6 @@ public class GradingSystem : MonoBehaviour
 
     public void SetHero(Diserars target)
     {
-        // Debug.Log(target.gameObject.name);
         currentHeroDesiers = target;
     } 
 }

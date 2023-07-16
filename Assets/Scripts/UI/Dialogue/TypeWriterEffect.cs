@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class TypeWriterEffect : MonoBehaviour
+public sealed class TypeWriterEffect : MonoBehaviour
 {
     [SerializeField] private float typeWriterSpeed;
 

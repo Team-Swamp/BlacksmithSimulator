@@ -1,12 +1,9 @@
-using System;
 using System.Collections;
-using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class DialogueUI : MonoBehaviour
+public sealed class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textlabel;
@@ -23,15 +20,12 @@ public class DialogueUI : MonoBehaviour
         CloseDialogueBox();
     }
 
-    public void StartDialogue()
-    {
-        ShowDialogue(testDialogue);
-    }
-
-    public void ShowDialogue(DialogueObject dialogueObject)
+    public void ShowDialogue(DialogueObject? dialogueObject)
     {
         dialogueBox.SetActive(true);
-        StartCoroutine(StepThroughDialogue(dialogueObject));
+        StartCoroutine(dialogueObject == null
+            ? StepThroughDialogue(testDialogue)
+            : StepThroughDialogue(dialogueObject));
     }
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
@@ -41,7 +35,7 @@ public class DialogueUI : MonoBehaviour
         var randomNumber = Random.Range(0, dialogueObject.TextWithKey.Count);
         _randomDialogue = dialogueObject.TextWithKey[randomNumber].Dialogue[0];
         
-        for (int i = 0; i < (dialogueObject.TextWithKey[randomNumber].Dialogue.Length); i++)
+        for (int i = 0; i < dialogueObject.TextWithKey[randomNumber].Dialogue.Length; i++)
         {
             yield return _typeWriterEffect.Run(_randomDialogue, textlabel);
             yield return new WaitUntil(() => SetNextDialogue(dialogueObject.TextWithKey[randomNumber]));
@@ -53,14 +47,11 @@ public class DialogueUI : MonoBehaviour
      private bool SetNextDialogue(KeyWithText keyWithText)
      {
          if (_dialogueIndex >= keyWithText.Dialogue.Length) return false;
-         if (Input.GetKeyDown(KeyCode.Space))
-         {
-             _randomDialogue = keyWithText.Dialogue[_dialogueIndex];
-             _dialogueIndex++;
-             return true;
-         }
-
-         return false;
+         if (!Input.GetKeyDown(KeyCode.Space)) return false;
+         
+         _randomDialogue = keyWithText.Dialogue[_dialogueIndex];
+         _dialogueIndex++;
+         return true;
      }
     
     private void CloseDialogueBox()
