@@ -1,14 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponDeposit : MonoBehaviour
+public sealed class WeaponDeposit : MonoBehaviour
 {
     [SerializeField] private ItemManager itemManager;
     [SerializeField] private List<GameObject> WeaponDepositLocations;
     [SerializeField] private List<GameObject> DepositedWeapons;
 
-    [SerializeField] private int _nextWeaponposition = 0;
+    [SerializeField] private int nextWeaponposition = 0;
     private GameObject _currentWeapon;
     private GameObject _depositedWeapon;
 
@@ -28,7 +27,7 @@ public class WeaponDeposit : MonoBehaviour
 
         if(WeaponDepositLocations != null)
         {
-            _currentWeapon = WeaponDepositLocations[_nextWeaponposition];
+            _currentWeapon = WeaponDepositLocations[nextWeaponposition];
         }
 
         SetNextPosition();
@@ -36,37 +35,29 @@ public class WeaponDeposit : MonoBehaviour
 
         var _weapon = Instantiate(finalWeapon, _currentWeapon.transform.position, _currentWeapon.transform.rotation);
         
-        if(DepositedWeapons.Count == 3) Destroy(DepositedWeapons[_nextWeaponposition]);
-        DepositedWeapons[_nextWeaponposition] = _weapon;
+        if(DepositedWeapons.Count == 3) Destroy(DepositedWeapons[nextWeaponposition]);
+        DepositedWeapons[nextWeaponposition] = _weapon;
         _depositedWeapon = _weapon;
 
     }
 
     public void SetNextPosition()
     {
-        _nextWeaponposition++;
+        nextWeaponposition++;
 
 
-        if (_nextWeaponposition == 3) 
-        {
-            _nextWeaponposition = 0;
-            
-        }
+        if (nextWeaponposition == 3) nextWeaponposition = 0;
     }
 
     public void ClearWeapon(int numb)
     {
         print(numb);
-        if(DepositedWeapons[numb].gameObject != null)
-        {
-            Destroy(DepositedWeapons[numb]);
-
-        }
+        if(DepositedWeapons[numb].gameObject != null) Destroy(DepositedWeapons[numb]);
     }
-
-    //TO GET THE LAST DEPOSITED WEAPON
-    public GameObject GetDepositedWeapon()
-    {
-        return _depositedWeapon;
-    }
+    
+    /// <summary>
+    /// Used to put the created weapons in the background?
+    /// </summary>
+    /// <returns>The last deposited weapon</returns>
+    public GameObject GetDepositedWeapon() => _depositedWeapon;
 }

@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemManager : MonoBehaviour
+public sealed class ItemManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> ItemList;
     public List<GameObject> GetItems()

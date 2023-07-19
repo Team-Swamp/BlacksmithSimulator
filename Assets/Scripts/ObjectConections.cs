@@ -3,150 +3,152 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 
-public class ObjectConections : MonoBehaviour
+public sealed class ObjectConections : MonoBehaviour
 {
-    private ItemManager _itemManager;
-
-    //private Vector3 size;
-    private Vector3 _connectionPos;
-    //private MeshRenderer renderer;
-    private bool _isConnected;
-
+    [Header("Refrences")]
     [SerializeField] private ParticleSystem attachPartsParticle;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip attachSound;
+    [SerializeField] private AudioClip deattachSound;
+    
+    [Space]
     [SerializeField] private List<GameObject> connectionPoints;
 
+    [Header("Events")]
     [SerializeField] private UnityEvent onConnect;
     [SerializeField] private UnityEvent onDetach;
 
+    private ItemManager _itemManager;
+    private Vector3 _connectionPos;
     private bool _canConnect = true;
+    private bool _isConnected;
+    private float _closestDistance = 99f;
+    private const float CanConnectAgainTimer = 0.5f;
 
     private void Start()
     {
         _itemManager = FindObjectOfType<ItemManager>();
 
-        var _points = gameObject.GetComponentsInChildren<ConnectionPoint>();
-        foreach (ConnectionPoint a in _points)
+        var points = gameObject.GetComponentsInChildren<ConnectionPoint>();
+        foreach (var connectionPoint in points)
         {
-            connectionPoints.Add(a.gameObject);
+            connectionPoints.Add(connectionPoint.gameObject);
         }
-
-        //renderer = GetComponent<MeshRenderer>();
-        //size = renderer.bounds.size;
     }
 
     public void SetObjectConnection()
     {
-        GameObject closestItem = GetClosestObject();
+        var closestItem = GetClosestObject();
         if (closestItem == null) return;
         
-        List<GameObject> closestConnection = GetClosestJoint(closestItem);
-
-        if (closestConnection == null) return;
-        if (Vector3.Distance(closestConnection[0].transform.position, closestConnection[1].transform.position) < (1) && _canConnect == true)
+        var closestConnection = GetClosestJoint(closestItem);
+        
+        if (closestConnection != null
+            && Vector3.Distance(closestConnection[0].transform.position, closestConnection[1].transform.position) < 1
+            && _canConnect)
         {
             SetObjectPosition(closestConnection);
         }
     }
-
-    private GameObject GetClosestObject()
-
+    
+    public void RemoveConnectedItems()
     {
-        var _items = _itemManager.GetItems();
-        if (_items.Count == 0) return null;
-        
-        float _closestDistance = 99;
-        GameObject _closestObject = null;
-        
-        foreach (GameObject obj in _items)
-        {
-            if (obj.gameObject != this.gameObject)
-            {
-                var _currentDistance = Vector3.Distance(gameObject.transform.position, obj.transform.position);
-                if (_currentDistance < _closestDistance)
-                {
-                    _closestDistance = _currentDistance;
-                    _closestObject = obj;
-                }
-            }
-        }
-
-        return _closestObject;
-    }
-
-    private List<GameObject> GetClosestJoint(GameObject Item)
-    {
-        float _closestDistance = 99;
-
-        List<GameObject> _connectionPoints = new List<GameObject>();
-        GameObject _closestConnection = null;
-        GameObject _closestConnectionSelf = null;
-
-        var _points = Item.GetComponentsInChildren<ConnectionPoint>();
-        foreach (ConnectionPoint point in _points)
-        {
-            for (int i = 0; i < connectionPoints.Count; i++)
-            {
-                var _distanceJoints = Vector3.Distance(connectionPoints[i].gameObject.transform.position, point.transform.position);
-
-                if(_distanceJoints < _closestDistance && connectionPoints[i].gameObject.transform.localPosition.y - point.transform.localPosition.y != 0)
-                {
-                    _closestDistance = _distanceJoints;
-
-                    _closestConnection = point.gameObject;
-                    _closestConnectionSelf = connectionPoints[i].gameObject;
-                }
-            }
-        }
-        _connectionPoints.Add(_closestConnection);
-        _connectionPoints.Add(_closestConnectionSelf);
-        return _connectionPoints;
-    }
-
-    private void SetObjectPosition(List<GameObject> closestConnection)
-    {
-        var _finalPos = closestConnection[0].transform.position;
-        var _offset = gameObject.transform.position - closestConnection[1].transform.position;
-        _connectionPos = closestConnection[1].transform.position;
-
-        gameObject.transform.position = _finalPos + _offset;
-
-
-        AddConnectedItem(closestConnection[0]);
-    }
-
-    [System.Obsolete]
-    private void AddConnectedItem(GameObject Connection)
-    {
-        gameObject.transform.SetParent(Connection.transform.parent.FindChild("AtachmentPoint"));
-        
-        if (_isConnected) return;
-        _isConnected = true;
-        onConnect?.Invoke();
-    }
-
-    public void RemoveConnectedItems(GameObject Connection)
-    {
-        if (_isConnected)
-        {
-            _isConnected = false;
-            onDetach?.Invoke();
-        }
+        if(gameObject.transform.childCount == 0) return;
 
         gameObject.transform.SetParent(null, true);
-        StartCoroutine(Timer(0.5f));
-    }
-
-    private IEnumerator Timer(float time)
-    {
-        _canConnect = false;
-        yield return new WaitForSeconds(time);
-        _canConnect = true;
+        StartCoroutine(Timer());
+        
+        if (!_isConnected) return;
+        _isConnected = false;
+        onDetach?.Invoke();
     }
     
     public void ActivateParticleSystem()
     {
         var particleSystemObject = Instantiate(attachPartsParticle);
         particleSystemObject.transform.position = _connectionPos;
-        //todo: Sounds can be placed here or make anhoter function and put in the same Unity Event
+    }
+
+    public void MakeSound(bool isAttaching)
+    {
+        var currentSound = isAttaching ? attachSound : deattachSound;
+        audioSource.clip = currentSound;
+        audioSource.Play();
+    }
+
+    private GameObject GetClosestObject()
+    {
+        var items = _itemManager.GetItems();
+        if (items.Count == 0) return null;
+        
+        GameObject closestObject = null;
+        
+        foreach (var obj in items)
+        {
+            if (obj == gameObject) continue;
+            
+            var currentDistance = Vector3.Distance(gameObject.transform.position, obj.transform.position);
+            if (!(currentDistance < _closestDistance)) continue;
+            
+            _closestDistance = currentDistance;
+            closestObject = obj;
+        }
+
+        return closestObject;
+    }
+
+    private List<GameObject> GetClosestJoint(GameObject Item)
+    {
+        var targetPoints = new List<GameObject>();
+        GameObject closestConnection = null;
+        GameObject closestConnectionSelf = null;
+
+        var otherConnectionPoints = Item.GetComponentsInChildren<ConnectionPoint>();
+        foreach (var otherPoint in otherConnectionPoints)
+        {
+            foreach (var point in connectionPoints)
+            {
+                var distanceJoints = Vector3.Distance(point.gameObject.transform.position, otherPoint.transform.position);
+
+                if(distanceJoints >= _closestDistance 
+                   && point.gameObject.transform.localPosition.y - otherPoint.transform.localPosition.y == 0) continue;
+                
+                _closestDistance = distanceJoints;
+
+                closestConnection = otherPoint.gameObject;
+                closestConnectionSelf = point.gameObject;
+            }
+        }
+        
+        targetPoints.Add(closestConnection);
+        targetPoints.Add(closestConnectionSelf);
+        return targetPoints;
+    }
+
+    private void SetObjectPosition(IReadOnlyList<GameObject> closestConnection)
+    {
+        var finalPos = closestConnection[0].transform.position;
+        var offset = gameObject.transform.position - closestConnection[1].transform.position;
+        _connectionPos = closestConnection[1].transform.position;
+
+        gameObject.transform.position = finalPos + offset;
+        
+        AddConnectedItem(closestConnection[0]);
+    }
+
+    private void AddConnectedItem(GameObject targetConnection)
+    {
+        gameObject.transform.SetParent(targetConnection.transform.parent.FindChild("AtachmentPoint"));
+        
+        if (_isConnected) return;
+        _isConnected = true;
+        onConnect?.Invoke();
+    }
+
+    private IEnumerator Timer()
+    {
+        _canConnect = false;
+        yield return new WaitForSeconds(CanConnectAgainTimer);
+        _canConnect = true;
     }
 }

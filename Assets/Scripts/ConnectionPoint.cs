@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ConnectionPoint : MonoBehaviour
+public sealed class ConnectionPoint : MonoBehaviour
 {
     // Used by ObjectConections
 }

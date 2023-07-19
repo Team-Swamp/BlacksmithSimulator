@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EndAnimationScript : MonoBehaviour
+public sealed class EndAnimationScript : MonoBehaviour
 {
-    private Animation _animation;
     [SerializeField] private float duration;
 
     private void Update()

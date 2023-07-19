@@ -1,53 +1,21 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuController : MonoBehaviour
+public sealed class MenuController : MonoBehaviour
 {
     [SerializeField] private string sceneName;
     [SerializeField] private GameObject activeExplanationMenu;
     [SerializeField] private GameObject activeMainMenu;
-
-    private bool _setUi;
-
-
-    private void Update()
+    
+    public void ToggleToMainMenuFormExplanation(bool goingToExplanation)
     {
-        BackToMainMenu();
-    }
-
-    public void GoToExplantion()
-    {
-        activeExplanationMenu.SetActive(this);
-        activeMainMenu.SetActive(false);
-    }
-
-    public void GoToMainMenu()
-    {
-        activeExplanationMenu.SetActive(false);
-        activeMainMenu.SetActive(true);
-    }
-
-    public void CreditScreen()
-    {
-        SceneManager.LoadScene("CreditScreen");
-    }
-
-    public void BackToMainMenu()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene(sceneName);
-        }
+        activeMainMenu.SetActive(!goingToExplanation);
+        activeExplanationMenu.SetActive(goingToExplanation);
     }
     
-    public void PlayGame()
-    {
-        SceneManager.LoadSceneAsync(sceneName);
-    }
-    
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
+    public void CreditScreen() => SceneManager.LoadScene("CreditScreen");
+
+    public void PlayGame() => SceneManager.LoadSceneAsync(sceneName);
+
+    public void QuitGame() => Application.Quit();
 }

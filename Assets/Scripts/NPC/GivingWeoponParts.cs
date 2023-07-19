@@ -14,12 +14,12 @@ public class GivingWeoponParts : MonoBehaviour
     public WeaponScore score;
 
     private Inventory _inventory;
-    private DialogueUI dialogueUI;
+    private DialogueUI _dialogueUI;
 
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();
-        dialogueUI = FindObjectOfType<DialogueUI>();
+        _dialogueUI = FindObjectOfType<DialogueUI>();
     }
 
     public void SelectItems()
@@ -28,7 +28,7 @@ public class GivingWeoponParts : MonoBehaviour
         {
             case WeaponScore.Squalid:
             case WeaponScore.Common:
-                dialogueUI.ShowDialogue(negativeResponds);
+                _dialogueUI.ShowDialogue(negativeResponds);
                 audioSource.clip = sadSound;
                 StartCoroutine(StartWaling());
                 break;
@@ -36,7 +36,7 @@ public class GivingWeoponParts : MonoBehaviour
             case WeaponScore.Rare:
             case WeaponScore.Epic:
             case WeaponScore.Legendary:
-                dialogueUI.ShowDialogue(positiveResponds);
+                _dialogueUI.ShowDialogue(positiveResponds);
                 _inventory.ActivatePart(weaponPartToGive);
                 audioSource.clip = happySound;
                 StartCoroutine(StartWaling());
