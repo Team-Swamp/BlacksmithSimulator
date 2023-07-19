@@ -5911,6 +5911,14 @@ PrefabInstance:
       propertyPath: weaponPartButtons.Array.data[6]
       value: 
       objectReference: {fileID: 176353656}
+    - target: {fileID: 2796954696694094515, guid: 719cb460859d5d549965dbcce7bc7358, type: 3}
+      propertyPath: keyWordColor
+      value: <color = "red">
+      objectReference: {fileID: 0}
+    - target: {fileID: 2796954696694094515, guid: 719cb460859d5d549965dbcce7bc7358, type: 3}
+      propertyPath: startDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 1924fcd8e85a45942b69b77bd1f10e56, type: 2}
     - target: {fileID: 2796954696694094517, guid: 719cb460859d5d549965dbcce7bc7358, type: 3}
       propertyPath: m_Pivot.x
       value: 0
