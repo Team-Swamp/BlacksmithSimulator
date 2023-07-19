@@ -27,6 +27,10 @@ public sealed class DragAndDrop : MonoBehaviour
         if (Input.GetMouseButton(0)) DragItem();
     }
     
+    /// <summary>
+    /// Creates new weapon part and sets it to the current item to drag.
+    /// </summary>
+    /// <param name="targetItem">New weapon part that spawns in.</param>
     public void SetItemToDrag(GameObject targetItem)
     {
         currentItemToDrag = Instantiate(targetItem, spawnPointForItems.position, targetItem.transform.rotation);
@@ -34,6 +38,9 @@ public sealed class DragAndDrop : MonoBehaviour
         onSpawnItem?.Invoke();
     }
 
+    /// <summary>
+    /// Dragges the current item to drag.
+    /// </summary>
     private void DragItem()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -53,6 +60,9 @@ public sealed class DragAndDrop : MonoBehaviour
         if (_lastDraggedItemCollider) _lastDraggedItemCollider.enabled = false;
     }
     
+    /// <summary>
+    /// Remove the current item to drag.
+    /// </summary>
     private void RemoveItem()
     {
         if (!Input.GetMouseButtonUp(1) // Rightmousebutton for remove item
@@ -63,6 +73,9 @@ public sealed class DragAndDrop : MonoBehaviour
         currentItemToDrag = null;
     }
 
+    /// <summary>
+    /// Select a diffrent weapon part to current item to drag.
+    /// </summary>
     private void SelectNewItemToDrag()
     {
         if (!Input.GetMouseButtonDown(0)) return;
