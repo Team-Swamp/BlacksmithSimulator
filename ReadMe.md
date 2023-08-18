@@ -22,10 +22,12 @@ In this game you are in a RPG world, where you are the blacksmith for the heroes
 [Credits animation](Assets/Scripts/MainMenu/EndAnimationScript.cs)
 
 ## Bas:
-### feature
+### Grading system
+
+### Other
 
 ## Ryan:
-### Feature
+### Connection Point
 
 ## Bjorn:
 ### Feature
