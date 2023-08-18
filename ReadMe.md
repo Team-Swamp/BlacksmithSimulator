@@ -1,46 +1,24 @@
 # Blacksmith Simulator
 
-Blacksmith Simulator is a game made for the GMTK gamejam 2023, with the thema roles reversed.
+Blacksmith Simulator is a game made for the GMTK gamejam 2023, with the thema roles reversed.<br> 
+[7th of July 2023 - 9th of July 2023]
 
-##
+In this game you are in a RPG world, where you are the blacksmith for the heroes that pass by.
 
-```cs
-using UnityEngine;
+## Team
+* Tatum, game developer
+* Bas, game developer
+* Ryan, game developer
+* Bjorn, game artist
 
-public class TheTeam : MonoBehaviour
-{
-    private string[] gameDevs;
-    private string[] gameArtists;
-    private string songArtist;
-    
-    private void Start()
-    {
-        gameDevs[0] = "Bas de Reus";
-        gameDevs[1] = "Ryan de Fost";
-        gameDevs[2] = "Tatum de Vries";
-        gameDevs[3] = "Björn Emil Oudekerk";
-        
-        gameArtists[0] = "Björn Emil Oudekerk";
-        gameArtists[1] = "Bas de Reus";
+## Tatum:
+### Feature
 
-        songArtist = "Ruud de Vries";
+## Bas:
+### feature
 
-        DebugEveryonesName();
-    }
+## Ryan:
+### Feature
 
-    private void DebugEveryonesName()
-    {
-        foreach (var gameDev in gameDevs)
-        {
-            Debug.Log(gameDev);
-        }
-        
-        foreach (var gameArtist in gameArtists)
-        {
-            Debug.Log(gameArtist);
-        }
-        
-        Debug.Log(songArtist);
-    }
-}
-```
+## Bjorn:
+### Feature
