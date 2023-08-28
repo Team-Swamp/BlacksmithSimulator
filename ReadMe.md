@@ -6,10 +6,10 @@ Blacksmith Simulator is a game made for the GMTK gamejam 2023, with the thema ro
 In this game you are in a RPG world, where you are the blacksmith for the heroes that pass by.
 
 ## Team
-* Tatum, game developer
-* Bas, game developer
-* Ryan, game developer
-* Bjorn, game artist
+* Tatum: game developer
+* Bas: game developer & game artist
+* Ryan: game developer
+* Bjorn: game artist
 
 ## Tatum:
 ### Dialogue
@@ -23,11 +23,22 @@ In this game you are in a RPG world, where you are the blacksmith for the heroes
 
 ## Bas:
 ### Grading system
-
-### Other
+[Diserars](Assets/Scripts/NPC/Diserars.cs)<br>
+[WeaponScore](Assets/Scripts/NPC/WeaponScore.cs)<br>
+### NPC
+[Giving weapom parts](Assets/Scripts/NPC/GivingWeoponParts.cs)<br>
+[Hero walking](Assets/Scripts/NPC/HeroWalking.cs)<br>
+### Drag & drop
+[Drag & drop](Assets/Scripts/UI/DragAndDrop.cs)<br>
+[Inventory](Assets/Scripts/UI/Inventory.cs)<br>
+[Weapon part data](Assets/Scripts/WeaponPartData.cs)<br>
 
 ## Ryan:
 ### Connection Point
+[Object conections](Assets/Scripts/ObjectConections.cs)<br>
+[Item manager](Assets/Scripts/ItemManager.cs)<br>
+[Weapon deposit](Assets/Scripts/WeaponDeposit.cs)<br>
 
 ## Bjorn:
-### Feature
+### Weapon part models
+Images coming soon
