@@ -50,6 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachPartsParticle: {fileID: 7501027022222470834, guid: e7fa36b39fd5e6f4e8ecc6994cef0c20, type: 3}
+  audioSource: {fileID: 0}
+  attachSound: {fileID: 0}
+  deattachSound: {fileID: 0}
   connectionPoints: []
   onConnect:
     m_PersistentCalls:
